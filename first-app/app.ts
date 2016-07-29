@@ -15,7 +15,7 @@ import {Component} from "@angular/core";
                 <input type="text" name="link" #newLink>
             </div>
 
-            <button className="ui positive right floated button" (click)="addArticle(newTitle, newLink)">
+            <button class="ui positive right floated button" (click)="addArticle(newTitle, newLink)">
                 Submit Link
             </button>
         </form>
@@ -26,7 +26,9 @@ class RedditApp {
     }
 
     addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
-        console.log(`Addign article title: ${title.value} and link: ${link.value}.`);
+        if (title.value && link.value) {
+            console.log(`Adding article title: ${title.value} and link: ${link.value}.`);
+        }
     }
 }
 
