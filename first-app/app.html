@@ -1,0 +1,19 @@
+<form class="ui large form segment">
+    <h3 class="ui header"></h3>
+    <div class="field">
+        <label for="title">Title</label>
+        <input type="text" name="title" #newTitle>
+    </div>
+    <div class="field">
+        <label for="link">Link</label>
+        <input type="text" name="link" #newLink>
+    </div>
+
+    <button class="ui positive right floated button" (click)="addArticle(newTitle, newLink)">
+        Submit Link
+    </button>
+</form>
+
+<div class="ui grid posts">
+    <reddit-article></reddit-article>
+</div>
