@@ -1,6 +1,25 @@
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component} from "@angular/core";
 
+class Article {
+    title: string;
+    link: string;
+    votes: number;
+
+    constructor(title: string, link: string, votes?: number) {
+        this.title = title;
+        this.link = link;
+        this.votes = votes || 0;
+    }
+
+    voteUp(): void {
+        this.votes++;
+    }
+
+    voteDown(): void {
+        this.votes--;
+    }
+}
 @Component({
     selector: 'reddit-article',
     templateUrl: './article.component.html',
@@ -9,23 +28,19 @@ import {Component} from "@angular/core";
     }
 })
 class ArticleComponent {
-    votes: number;
-    title: string;
-    link: string;
+    article: Article;
 
     constructor() {
-        this.title = 'Angular 2';
-        this.link = 'http://angular.io';
-        this.votes = 10;
+        this.article = new Article('Angular 2', 'http://angular.io', 10);
     }
 
-    voteUp() {
-        this.votes++;
+    voteUp(): boolean {
+        this.article.voteUp();
         return false;
     }
 
-    voteDown() {
-        this.votes--;
+    voteDown(): boolean {
+        this.article.voteDown();
         return false;
     }
 }
