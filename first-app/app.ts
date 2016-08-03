@@ -22,6 +22,7 @@ class Article {
 }
 @Component({
     selector: 'reddit-article',
+    inputs: ['article'],
     templateUrl: './article.component.html',
     host: {
         class: 'row'
@@ -29,10 +30,6 @@ class Article {
 })
 class ArticleComponent {
     article: Article;
-
-    constructor() {
-        this.article = new Article('Angular 2', 'http://angular.io', 10);
-    }
 
     voteUp(): boolean {
         this.article.voteUp();
@@ -51,7 +48,13 @@ class ArticleComponent {
     templateUrl: './app.html'
 })
 class RedditApp {
+    articles: Article[];
+
     constructor() {
+        this.articles = [
+            new Article('Angular 2', 'http://angular.io', 10),
+            new Article('Fullstack', 'http://fullstack.io', 5),
+        ]
     }
 
     addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
