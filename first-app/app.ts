@@ -19,6 +19,15 @@ class Article {
     voteDown(): void {
         this.votes--;
     }
+
+    domain(): string {
+        try {
+            return this.link.split('//')[1].split('/')[0].replace('www.', '');
+        }
+        catch (err) {
+            return null;
+        }
+    }
 }
 @Component({
     selector: 'reddit-article',
