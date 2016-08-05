@@ -66,6 +66,10 @@ class RedditApp {
         ]
     }
 
+    sortedArticles(): Article[] {
+        return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
+    }
+
     addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
         if (title.value && link.value) {
             console.log(`Adding article title: ${title.value} and link: ${link.value}.`);
