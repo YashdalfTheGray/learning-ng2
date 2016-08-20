@@ -4,3 +4,4 @@
 *.log
 **/intermediates/*.js
 **/intermediates/*.js.map
+**/typings
